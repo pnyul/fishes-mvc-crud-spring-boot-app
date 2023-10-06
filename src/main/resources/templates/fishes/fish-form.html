@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Save fish</title>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>
+        <div style="text-align: center">Add fish</div>
+    </h3>
+
+    <hr>
+
+    <div class="container" align="center">
+
+        <form action="#" th:action="@{/fishes/save}" th:object="${fish}" method="POST">
+
+            <input type="hidden" th:field="*{id}">
+
+            <input type="text" th:field="*{species}" class="form-control mb-4 w-25" placeholder="Species">
+
+            <input type="text" th:field="*{genus}" class="form-control mb-4 w-25" placeholder="Genus">
+
+            <input type="text" th:field="*{family}" class="form-control mb-4 w-25" placeholder="Family">
+
+            <input type="text" th:field="*{maxLength}" class="form-control mb-4 w-25" placeholder="Max Length">
+
+            <button type="submit" class="btn btn-info col-2">Save</button>
+
+        </form>
+
+    </div>
+
+    <hr>
+
+    <a th:href="@{/fishes/list}">Back to Fishes</a>
+
+</div>
+
+</body>
+
+</html>

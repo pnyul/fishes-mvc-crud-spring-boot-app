@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Fishes</title>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>
+
+        <div style="text-align: center"><u>Fishes</u></div>
+
+    </h3>
+
+    <hr>
+
+    <div class="text-center">
+
+        <!--    "Add fish" button-->
+        <a th:href="@{/fishes/showFormForAdd}"
+           class="btn btn-outline-primary btn-sm mb-3">
+            Add fish
+        </a>
+
+    </div>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-striped table-dark table-hover text-center">
+
+        <tr>
+
+            <th style="color:yellow">Species</th>
+
+            <th>Genus</th>
+
+            <th>Family</th>
+
+            <th>Max length</th>
+
+            <th>Action</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr th:each="fish : ${fishes}">
+            <td th:text="${fish.species}" class="text-center"/>
+            <td th:text="${fish.genus}" class="text-center"/>
+            <td th:text="${fish.family}" class="text-center"/>
+            <td th:text="${fish.maxLength}" class="text-center"/>
+
+
+            <td>
+
+                <div class="text-center">
+                    <!--            "Update" button-->
+                    <a th:href="@{/fishes/showFormForUpdate(fishId=${fish.id})}"
+                       class="btn btn-outline-info btn-sm">
+                        Update
+                    </a>
+                    <!--           "Delete" button-->
+                    <a th:href="@{/fishes/delete(fishId=${fish.id})}"
+                       class="btn btn-outline-danger btn-sm"
+                       onclick="if(!(confirm('Are you sure?'))) return false">
+                        Delete
+                    </a>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+
+</html>
+
+
+
